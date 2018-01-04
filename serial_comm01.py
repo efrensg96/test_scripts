@@ -3,7 +3,7 @@ import time
 import numpy as np
 import matplotlib.pyplot as plt
 
-arduinoPort = serial.Serial('COM1', 1000000)
+arduinoPort = serial.Serial('/dev/ttyAMA0', 1000000)
 counter = 0
 t0 = time.time()
 dataSerial01 = []
