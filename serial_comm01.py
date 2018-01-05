@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # arduinoPort = serial.Serial('COM1', 230400)
-arduinoPort = serial.Serial('/dev/ttyUSB0', 500000) # to read
+arduinoPort = serial.Serial('/dev/ttyS0', 500000) # to read
 # arduinoPort = serial.Serial('/dev/ttyAMA0', 230400) # to write
 counter = 0
 t0 = time.time()
