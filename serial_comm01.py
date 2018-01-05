@@ -4,20 +4,21 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # arduinoPort = serial.Serial('COM1', 230400)
-arduinoPort = serial.Serial('/dev/ttyUSB0', 230400)
+arduinoPort = serial.Serial('/dev/ttyUSB0', 230400) # to read
+# arduinoPort = serial.Serial('/dev/ttyAMA0', 230400) # to write
 counter = 0
 t0 = time.time()
 dataSerial01 = []
 flag = True
+
+time.sleep(3)
+t1 = time.time()
+print "Start time: ", t1 - t0
 while True:
     t1 = time.time()
-    if (t1 - t0) >= 4:
+    if (t1 - t0) >= 4.0:
         break
-    elif (t1 - t0) >= 3:
-        if flag:
-            print "Start time: ", t1 - t0
-            flag = False
-        dataSerial01.append(arduinoPort.readline().strip())
+    dataSerial01.append(arduinoPort.readline().strip())
 
 print "Stop time: ", t1 - t0
 # data = b''.join(data)
