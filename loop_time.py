@@ -8,4 +8,4 @@ flag = False
 while not flag:
     flag = True
     t1 = time.time()
-print "time per loop", np.float(t0 - t1)
+print "time per loop", np.float(t1 - t0)
