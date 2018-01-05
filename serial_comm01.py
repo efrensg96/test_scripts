@@ -26,11 +26,11 @@ print "Stop time: ", t1 - t0
 print "dataSerial01 size: ", len(dataSerial01)
 
 # dataSerial01[0] = dataSerial01[1]
-print "dataSerial01: ", dataSerial01
+# print "dataSerial01: ", dataSerial01
 
 data01 = map(np.int16, dataSerial01[2::])
 
-print "data01: ", data01
+# print "data01: ", data01
 
 print "data01 lenght: ", len(data01)
 
