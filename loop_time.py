@@ -12,6 +12,6 @@ t0 = time.time()
 while not flag:
     flag = True
     dataSerial01.append(arduinoPort.readline().strip())
-    t1 = time.time()
+t1 = time.time()
 print "time per loop", np.float(t1 - t0)
 print "dataSerial01: ", dataSerial01
