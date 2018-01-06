@@ -16,4 +16,4 @@ while True:
     dataSerial01.append(arduinoPort.readline().strip())
     counter += 1
 print "time per loop", np.float(time.time() - t0)
-print "dataSerial01: ", dataSerial01
+# print "dataSerial01: ", dataSerial01
