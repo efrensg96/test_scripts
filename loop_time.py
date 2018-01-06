@@ -1,3 +1,9 @@
+import serial
+import time
+import numpy as np
+import matplotlib.pyplot as plt
+
+arduinoPort = serial.Serial('/dev/ttyUSB0', 500000)
 dataSerial01 = []
 flag = False
 time.sleep(3)
