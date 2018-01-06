@@ -11,7 +11,7 @@ counter = 0
 print "start time"
 t0 = time.time()
 while True:
-    if counter >= 2048
+    if counter >= 2048:
         break
     dataSerial01.append(arduinoPort.readline().strip())
     counter += 1
