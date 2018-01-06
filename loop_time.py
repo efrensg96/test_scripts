@@ -3,7 +3,7 @@ import time
 import numpy as np
 import matplotlib.pyplot as plt
 
-arduinoPort = serial.Serial('COM1', 500000)
+arduinoPort = serial.Serial('/dev/ttyUSB0', 500000) # to read
 dataSerial01 = []
 flag = False
 time.sleep(3)
