@@ -11,9 +11,10 @@ counter = 0
 print "start time"
 t0 = time.time()
 while True:
-    if counter >= 2000:
+    if counter >= 44100:
         break
-    dataSerial01.append(arduinoPort.readline().strip())
+    # dataSerial01.append(arduinoPort.readline().strip())
     counter += 1
 print "time per loop", np.float(time.time() - t0)
-# print "dataSerial01: ", dataSerial01
+print "counter: ", counter
+#print "dataSerial01: ", dataSerial01
