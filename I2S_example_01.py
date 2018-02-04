@@ -11,16 +11,17 @@ import wave
 def main():
 
     arduinoPort = serial.Serial('/dev/ttyACM0', 1000000, timeout=3)
-    dataSerial_01 = []
-    time.sleep(1)
+    dataSerial_01 = []    
     CHUNK = 96000 #2 channels, 16khz of fs, time to be recorded (2*16000*time) = chunk size
     N = 2**16
 
-    print "start time"
+    time.sleep(3)
     t0 = time.time()
+    print "start time at:", t0    
 
     while True:
-        if len(dataSerial_01) >= CHUNK:
+        t1 = time.time()
+        if (t1 - t0) >= 4:
             break
         dataSerial_01.append(struct.unpack("i", arduinoPort.read(4)))
 
