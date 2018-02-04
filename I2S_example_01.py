@@ -8,13 +8,13 @@ import pyaudio
 import wave
 
 
-# def main():
-if __name__ == '__main__':
+def main():
 
-    arduinoPort = serial.Serial('/dev/ttyACM0', 1000000, timeout=3)
+    arduinoPort = serial.Serial('COM4', 1000000, timeout=3)
     dataSerial_01 = []
     time.sleep(1)
     CHUNK = 96000 #2 channels, 16khz of fs, time to be recorded (2*16000*time) = chunk size
+    N = 2**16
 
     print "start time"
     t0 = time.time()
@@ -29,6 +29,7 @@ if __name__ == '__main__':
     print "dataSerial_01: ", dataSerial_01[0:20]
 
     data01 = np.int32(dataSerial_01)
+    data01 = np.int16(np.round(data01/N))
 
     print "data01 shape: ", data01.shape
 
@@ -48,7 +49,7 @@ if __name__ == '__main__':
     WAVE_OUTPUT_FILENAME = "I2S_example_01.wav"
     CHANNELS = 2
     RATE = 16000
-    FORMAT = pyaudio.paInt32
+    FORMAT = pyaudio.paInt16
 
     p = pyaudio.PyAudio()
 
@@ -62,8 +63,8 @@ if __name__ == '__main__':
     arduinoPort.close()
 
 
-# if __name__ == '__main__':
-#     main()
+if __name__ == '__main__':
+    main()
 
 
 
