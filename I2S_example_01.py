@@ -8,7 +8,8 @@ import pyaudio
 import wave
 
 
-def main():
+# def main():
+if __name__ == '__main__':
 
     arduinoPort = serial.Serial('/dev/ttyACM0', 1000000, timeout=3)
     dataSerial_01 = []
@@ -61,8 +62,8 @@ def main():
     arduinoPort.close()
 
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
 
 
 
