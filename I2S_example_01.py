@@ -16,13 +16,11 @@ def main():
     N = 2**16
 
     t0 = time.time()
-    time.sleep(1)    
-    t1 = time.time()
-    print "Start time: ", t1 - t0  
+    print "Start time"
 
     while True:
         t1 = time.time()
-        if (t1 - t0) >= 2.0:
+        if (t1 - t0) >= 4.0:
             break
         dataSerial_01.append(struct.unpack("i", arduinoPort.read(4)))
 
