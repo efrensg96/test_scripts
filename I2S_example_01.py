@@ -15,13 +15,14 @@ def main():
     CHUNK = 96000 #2 channels, 16khz of fs, time to be recorded (2*16000*time) = chunk size
     N = 2**16
 
-    time.sleep(3)
     t0 = time.time()
-    print "start time at:", t0    
+#     time.sleep(3)    
+    t1 = time.time()
+    print "Start time: ", t1 - t0  
 
     while True:
         t1 = time.time()
-        if (t1 - t0) >= 4:
+        if (t1 - t0) >= 4.0:
             break
         dataSerial_01.append(struct.unpack("i", arduinoPort.read(4)))
 
