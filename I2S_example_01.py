@@ -20,7 +20,7 @@ def main():
 
     while True:
         t1 = time.time()
-        if (t1 - t0) >= 4.0:
+        if (t1 - t0) >= 1.0:
             break
         dataSerial_01.append(struct.unpack("i", arduinoPort.read(4)))
 
