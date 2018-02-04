@@ -10,7 +10,7 @@ import wave
 
 def main():
 
-    arduinoPort = serial.Serial('/dev/ttyUSB0', 1000000, timeout=3)
+    arduinoPort = serial.Serial('/dev/ttyACM0', 1000000, timeout=3)
     dataSerial_01 = []
     time.sleep(1)
     CHUNK = 96000 #2 channels, 16khz of fs, time to be recorded (2*16000*time) = chunk size
