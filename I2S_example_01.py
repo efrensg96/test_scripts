@@ -30,7 +30,7 @@ def main():
     print "dataSerial_01: ", dataSerial_01[0:20]
 
     data01 = np.int32(dataSerial_01)
-    data01 = np.int16(np.round(data01/N))
+#     data01 = np.int16(np.round(data01/N))
 
     if (len(dataSerial_01) % 2) != 0:
         data01 = data01[:-1]
@@ -58,8 +58,8 @@ def main():
     WAVE_OUTPUT_FILENAME = "I2S_example_02.wav"
     CHANNELS = 1
     RATE = 32000
-    FORMAT = pyaudio.paInt16
-#     FORMAT = pyaudio.paInt32
+#     FORMAT = pyaudio.paInt16
+    FORMAT = pyaudio.paInt32
 
     p = pyaudio.PyAudio()
 
