@@ -57,7 +57,7 @@ def main():
 
     WAVE_OUTPUT_FILENAME = "I2S_example_02.wav"
     CHANNELS = 1
-    RATE = 16000
+    RATE = 32000
 #     FORMAT = pyaudio.paInt16
     FORMAT = pyaudio.paInt32
 
