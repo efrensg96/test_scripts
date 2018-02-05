@@ -29,13 +29,18 @@ def main():
 
     data01 = np.int32(dataSerial_01)
 
+    if (len(dataSerial_01) % 2) != 0:
+        data01 = data01[:-1]
+
+    data01.reshape((-1, 2))
+
     print "data01 shape: ", data01.shape
 
     remixSamples = mm.audio.signal.remix(data01, 1)
     spec = mm.audio.spectrogram.Spectrogram(remixSamples)
 
     plt.figure()
-    plt.plot(data01)
+    plt.plot(remixSamples)
     plt.title("Raw Data")
 
     plt.figure()
@@ -45,8 +50,8 @@ def main():
     plt.show()
 
     WAVE_OUTPUT_FILENAME = "I2S_example_01.wav"
-    CHANNELS = 2
-    RATE = 16000
+    CHANNELS = 1
+    RATE = 32000
     FORMAT = pyaudio.paInt32
 
     p = pyaudio.PyAudio()
