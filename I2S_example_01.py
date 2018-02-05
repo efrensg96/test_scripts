@@ -12,7 +12,9 @@ def main():
 
     arduinoPort = serial.Serial('/dev/ttyACM0', 1000000, timeout=3)
     dataSerial_01 = []
+    CdataSerial_01 = []
     CHUNK = 96000 #2 channels, 16khz of fs, time to be recorded (2*16000*time) = chunk size
+    N = 2**16
 
     t0 = time.time()
     print "Start time"
@@ -28,6 +30,7 @@ def main():
     print "dataSerial_01: ", dataSerial_01[0:20]
 
     data01 = np.int32(dataSerial_01)
+    data01 = np.int16(np.round(data01/N))
 
     if (len(dataSerial_01) % 2) != 0:
         data01 = data01[:-1]
@@ -37,6 +40,9 @@ def main():
     print "data01 shape: ", data01.shape
 
     remixSamples = mm.audio.signal.remix(data01, 1)
+
+    print "remixSamples shape: ", remixSamples.shape
+
     spec = mm.audio.spectrogram.Spectrogram(remixSamples)
 
     plt.figure()
@@ -49,10 +55,11 @@ def main():
 
     plt.show()
 
-    WAVE_OUTPUT_FILENAME = "I2S_example_01.wav"
+    WAVE_OUTPUT_FILENAME = "I2S_example_02.wav"
     CHANNELS = 1
     RATE = 32000
-    FORMAT = pyaudio.paInt32
+    FORMAT = pyaudio.paInt16
+#     FORMAT = pyaudio.paInt32
 
     p = pyaudio.PyAudio()
 
@@ -68,7 +75,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
 
