@@ -35,7 +35,7 @@ def main():
     if (len(dataSerial_01) % 2) != 0:
         data01 = data01[:-1]
 
-    data01.reshape((-1, 2))
+    data01 = np.reshape(data01, (-1, 2))
 
     print "data01 shape: ", data01.shape
 
